@@ -6,7 +6,11 @@
         <div class="text-center">{{ .Site.Params.contact_content | emojify | markdownify }}</div>
         {{ if .Site.Params.email }}
         <div class="text-center pt-3">
-          <a href="mailto:{{ .Site.Params.email }}?subject=Say hi!" class="contact-btn btn text-muted">
+          <a href="#" target="_blank" class="cryptedmail contact-btn btn text-muted"
+            data-name="{{ .Site.Params.email.name }}"
+            data-domain="{{ .Site.Params.email.domain }}"
+            data-tld="{{ .Site.Params.email.tld }}"
+            onclick="window.location.href = 'mailto:' + this.dataset.name + '@' + this.dataset.domain + '.' + this.dataset.tld; return false;">
             {{ .Site.Params.getintouch | default "Get in Touch" }}
           </a>
         </div>
