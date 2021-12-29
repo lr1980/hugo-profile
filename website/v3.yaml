@@ -69,24 +69,24 @@ params:
     - company: "Google"
       # id: "google-developer"   // use this, when you want to change the id(used for navigation)
       role: "Software developer"
-      startdate: Feb 2021
-      enddate: present
+      startdate: 2021-02-01
+      enddate: now
       featuredpoints:
         - point: Lead backend developer for a product.
         - point: Created a frontend design for a product.
     - company: "Facebook"
       # id: "facebook-developer" // use this, when you want to change the id(used for navigation)
       role: "Fullstack developer"
-      startdate: Mar 2020
-      enddate: Dec 2020
+      startdate: 2020-03-01
+      enddate: 2020-12-01
       featuredpoints:
         - point: Lead backend developer for a product.
         - point: Created a frontend design for a product.
     - company: "Amazon"
       # id: "amazon-developer" // use this, when you want to change the id(used for navigation)
       role: "Fullstack developer"
-      startdate: Feb 2019
-      enddate: Jan 2020
+      startdate: 2019-02-01
+      enddate: 2020-01-01
       featuredpoints:
         - point: Lead backend developer for a product.
         - point: Created a frontend design for a product.

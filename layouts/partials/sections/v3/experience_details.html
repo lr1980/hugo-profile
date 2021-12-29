@@ -3,9 +3,28 @@
     <div class="h5">{{ .role }}</div>
 </div>
 <div>
-    <small><i class="far fa-calendar-alt"></i> {{ .startdate }}</small>
+    {{ $startdate := time .startdate }}
+    {{ $enddate := now }}
+    {{ if ne .enddate "now" }}{{ $enddate = time .enddate }}{{ end }}
+    {{ $diff_years := sub $enddate.Year $startdate.Year }}
+    {{ $diff_months := add (sub $enddate.Month $startdate.Month) 1 }}
+    {{ if lt $diff_months 0 }}
+    {{ $diff_years = sub $diff_years 1 }}
+    {{ $diff_months = add $diff_months 12 }}
+    {{ end }}
+    {{ $diff_string := "" }}
+    {{ if ge $diff_years 1 }}
+        {{ $diff_string = printf "%d %s" $diff_years (i18n "year" $diff_years) }}
+        {{ if ge $diff_months 1 }}
+        {{ $diff_string = printf "%s %s " $diff_string (i18n "and")}}
+        {{ end }}
+    {{ end }}
+    {{ if ge $diff_months 1 }}
+    {{ $diff_string = printf "%s%d %s" $diff_string $diff_months (i18n "month" $diff_months)}}
+    {{ end }}
+    <small><i class="far fa-calendar-alt"></i> {{ time.Format (i18n "date_format") $startdate }}</small>
     -
-    <small>{{ .enddate }}</small>
+    <small>{{ time.Format (i18n "date_format") $enddate }}, {{ $diff_string }}</small>
 </div>
 <ul class="py-2 ex">
     {{ range .featuredpoints }}

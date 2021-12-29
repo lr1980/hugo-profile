@@ -16,7 +16,7 @@
         {{ range $index, $element := .Site.Params.experience }}
           <a class="nav-link {{ if (eq $index 0) }}active{{ end }}" id="{{ cond (eq .id "") .company .id }}-tab" data-toggle="pill" href="#{{ cond (eq .id "") .company .id }}" role="tab"
             aria-controls="{{ cond (eq .id "") .company .id }}" aria-selected="{{ if (eq $index 0) }}true{{ else }}false{{ end }}">
-            <small><i class="far fa-calendar-alt"></i> {{ .startdate }}</small> 
+            <small><i class="far fa-calendar-alt"></i> {{ time.Format (i18n "date_format") (time .startdate) }}</small> 
             <div>{{ .company }}</div>
           </a>
         {{ end }}

@@ -1,0 +1,12 @@
+- id: year
+  translation:
+    one: Jahr
+    other: Jahre
+- id: month
+  translation:
+    one: Monat
+    other: Monate
+- id: and
+  translation: und
+- id: date_format # https://gohugo.io/functions/format/#gos-layout-string
+  translation: "2006 Jan"
